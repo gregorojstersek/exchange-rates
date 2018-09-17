@@ -1,6 +1,6 @@
 # ExchangeRates
 
-This project is running with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
+Web application that displays exchange rates for a currency on a given date.
 
 ## Install
 
