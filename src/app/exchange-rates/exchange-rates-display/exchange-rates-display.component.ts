@@ -24,14 +24,6 @@ export class ExchangeRatesDisplayComponent implements OnInit {
     });
   }
 
-  calculateBuyRate = (rate: number) => {
-    return (rate - (0.05 * rate)).toFixed(4);
-  }
-
-  calculateSellRate = (rate: number) => {
-    return (rate + (0.05 * rate)).toFixed(4);
-  }
-
   canBeSelectedAsBase = (currentCurrency: string) => {
     const found = this.currencies.filter((currency) => currency === currentCurrency);
     return found.length;
