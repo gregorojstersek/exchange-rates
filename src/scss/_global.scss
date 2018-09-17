@@ -1,0 +1,44 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 100px 0 100px 0;
+  font-weight: 300;
+  font-size: 36px;
+  color: $text-color;
+
+  @media (max-width: 768px) {
+    margin: 50px 0 15px 0;
+  }
+}
+
+.red {
+  * {
+    color: red;
+  }
+}
+
+.asc {
+  background-image: url('assets/sort-up.svg');
+  @include sort;
+}
+
+.desc {
+  background-image: url('assets/sort-down.svg');
+  @include sort;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center
+}

@@ -1,0 +1,17 @@
+<div class="form">
+  <div class="form__group">
+    <label for="asd" class="form__label">Base</label>
+    <select class="form__style form__select" aria-describedby="asd" [(ngModel)]="exchangeRateSettings.base">
+      <option *ngFor="let currency of currencies" [ngValue]="currency" title="{{ currency }}">{{
+        currency }}</option>
+    </select>
+  </div>
+
+  <div class="form__group">
+    <label for="asdasd" class="form__label">Date</label>
+    <input type="date" class="form__style form__input" aria-describedby="asdasd" [(ngModel)]="exchangeRateSettings.date" />
+  </div>
+
+  <button class="btn btn__barclays btn__200-right" (click)="submitSettings()" [disabled]="!canSubmitSettings()">Display</button>
+
+</div>

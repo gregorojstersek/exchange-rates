@@ -1,0 +1,25 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+
+  &__25 {
+    @include grid;
+    flex: 0 0 25%;
+    max-width: 25%;
+    @include grid-media;
+  }
+
+  &__66 {
+    @include grid;
+    flex: 0 0 66.66666667%;
+    max-width: 66.66666667%;
+    @include grid-media;
+  }
+
+  &__offset__8 {
+    margin-left: 8.33333333%;
+    @include grid-offset-media;
+  }
+}

@@ -1,0 +1,13 @@
+<div class="table-responsive">
+  <table class="table">
+    <th class="cursor-pointer" (click)="sortByCurrency()">Currency <div [ngClass]="currencySort" #sort></div>
+    </th>
+    <th>Buy</th>
+    <th>Sell</th>
+    <tr *ngFor="let exchangeRate of exchangeRates; let i = index" [ngClass]="{ red : canBeSelectedAsBase(exchangeRate.currency) }">
+      <td>{{ exchangeRate.currency }}</td>
+      <td>{{ exchangeRate.rate | calculateRate : 'buy' }}</td>
+      <td>{{ exchangeRate.rate | calculateRate : 'sell' }}</td>
+    </tr>
+  </table>
+</div>
