@@ -42,3 +42,9 @@ h1 {
 .text-center {
   text-align: center
 }
+
+.error {
+  padding: 15px;
+  background-color: $red;
+  color: white;
+}

@@ -1,3 +1,4 @@
+import { ExchangeRatesService } from './exchange-rates/shared/exchange-rates.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  exchangeRateDataError: boolean;
+
+  constructor(private exchangeRatesService: ExchangeRatesService) { }
+
   ngOnInit() {
+    this.exchangeRatesService.getExchangeRatesDataError().subscribe(() => {
+      this.exchangeRateDataError = true;
+    });
 
   }
 

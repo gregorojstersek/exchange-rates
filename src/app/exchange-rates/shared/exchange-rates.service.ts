@@ -14,12 +14,9 @@ export class ExchangeRatesService {
   });
 
   private exchangeRatesData = new Subject<Array<ExchangeRate>>();
+  private exchangeRatesDataError = new Subject<Response>();
 
   constructor(private http: Http) { }
-
-  getExchangeRatesData = () => {
-    return this.exchangeRatesData;
-  }
 
   getExchangeRates = (urlParams: Object = {}) => {
     return this.http.get('https://api.exchangeratesapi.io/latest', { params: urlParams, headers: this.headers })
@@ -38,9 +35,17 @@ export class ExchangeRatesService {
         this.exchangeRatesData.next(exchangeRatesData);
       },
         (error: Response) => {
-          console.log(error);
-          // to do error handling
+          // show the error message
+          this.exchangeRatesDataError.next(error);
         });
+  }
+
+  getExchangeRatesData = () => {
+    return this.exchangeRatesData;
+  }
+
+  getExchangeRatesDataError = () => {
+    return this.exchangeRatesDataError;
   }
 }
 
