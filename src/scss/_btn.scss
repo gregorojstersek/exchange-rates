@@ -19,6 +19,10 @@
     cursor: pointer;
   }
 
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   &__200-right {
     width: 200px;
     display: block;
@@ -38,9 +42,16 @@
     background-color: $barclays-blue;
     border-color: $barclays-blue;
 
+    &:disabled {
+      background-color: darken($barclays-blue, 15%);
+      border-color: darken($barclays-blue, 15%);
+    }
+
     &:hover {
-      background-color: darken($barclays-blue, 5%);
-      border-color: darken($barclays-blue, 5%);
+      &:not(:disabled) {
+        background-color: darken($barclays-blue, 5%);
+        border-color: darken($barclays-blue, 5%);
+      }
     }
 
     &:focus {
