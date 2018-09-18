@@ -9,17 +9,13 @@ import { ExchangeRate } from './exchange-rate.model';
 })
 export class ExchangeRatesService {
 
-  private headers = new Headers({
-    'Content-Type': 'application/json'
-  });
-
   private exchangeRatesData = new Subject<Array<ExchangeRate>>();
   private exchangeRatesDataError = new Subject<Response>();
 
   constructor(private http: Http) { }
 
   getExchangeRates = (urlParams: Object = {}) => {
-    return this.http.get('https://api.exchangeratesapi.io/latest', { params: urlParams, headers: this.headers })
+    return this.http.get('https://api.exchangeratesapi.io/latest', { params: urlParams })
       .pipe(map((res: Response) => res.json()))
       .subscribe((exchangeRates) => {
 
