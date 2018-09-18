@@ -21,7 +21,7 @@ export class ExchangeRatesSettingsComponent implements OnInit {
   }
 
   submitSettings = () => {
-    this.exchangeRatesService.getExchangeRates(this.exchangeRateSettings);
+    this.exchangeRatesService.getExchangeRates(this.exchangeRateSettings.date, { base: this.exchangeRateSettings.base });
   }
 
   canSubmitSettings = () => {

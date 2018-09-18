@@ -14,8 +14,8 @@ export class ExchangeRatesService {
 
   constructor(private http: Http) { }
 
-  getExchangeRates = (urlParams: Object = {}) => {
-    return this.http.get('https://api.exchangeratesapi.io/latest', { params: urlParams })
+  getExchangeRates = (endpoint: string = 'latest', urlParams: Object = {}) => {
+    return this.http.get(`https://api.exchangeratesapi.io/${endpoint}`, { params: urlParams})
       .pipe(map((res: Response) => res.json()))
       .subscribe((exchangeRates) => {
 
